@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include('partials/headLinks') %>
+</head>
+<body>
+    
+   <%- include('partials/header') %>
+    
+   
+   <div class="container">
+        <h2>Bootstrap Form</h2>
+        <form action="/register" method="post">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" name="name" id="name" value="<%= locals.formData?.name || '' %>" required>
+          </div>
+          <div class="form-group">
+            <label for="lastname">Lastname:</label>
+            <input type="text" class="form-control" name="lastname" id="lastname" value="<%= locals.formData?.lastname || '' %>" required>
+          </div>
+          <div class="form-group">
+            <label for="address">Address:</label>
+            <textarea class="form-control" name="address" id="address" placeholder="Enter your address" required><%=locals.formData?.address || '' %></textarea>
+          </div>    
+          <div class="form-group">
+            <label for="password">password:</label>
+            <input type="password" class="form-control" name="password" id="password"   required>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <% if (locals.message) { %>
+        <div class="alert alert-danger" role="alert">
+            <%= message %>
+        </div>
+    <% } %>
+
+</body>
+</html>
